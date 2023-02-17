@@ -24,91 +24,96 @@ void Input()
 
 int main()
 {
-	Input();
-	double D = A[0][0] * A[1][1] - A[0][1] * A[1][0];
-	if (D != 0)
+	int sw = 0;
+	while (sw != -1)
 	{
-		double Dx = A[0][2] * A[1][1] - A[1][2] * A[0][1];
-		double Dy = A[0][0] * A[1][2] - A[1][0] * A[0][2];
+		cout << "|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_" << endl;
+		Input();
+		double D = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+		if (D != 0)
+		{
+			double Dx = A[0][2] * A[1][1] - A[1][2] * A[0][1];
+			double Dy = A[0][0] * A[1][2] - A[1][0] * A[0][2];
 
-		cout << s<<sx << Dx / D << "\n" << sy << Dy / D << endl;
-		return 0;
-	}
-	else
-	{
-		if ((A[0][0] == 0) && (A[0][1] == 0) && (A[1][0] == 0) && (A[1][1] == 0))
-		{
-			if ((A[0][2] == 0) && (A[1][2] == 0))
-			{
-				cout << s << sx << "any value" << sy << "any value" << endl;	
-				return 0;
-			}
-			else
-			{
-				cout << "invalid matrix" << endl;
-				return 0;
-			}
-		}
-		else if ((A[0][0] == 0) && (A[1][0] == 0))
-		{
-			double y1 = A[0][2] / A[0][1];
-			double y2 = A[1][2] / A[1][1];
-			if (y1 == y2)
-			{
-				cout << s << sx << "any value" << sy << y1 << endl;
-				return 0;
-			}
-			else
-			{
-				cout << "no Solutions" << endl;
-				return 0;
-			}
-		}
-		else if ((A[0][1] == 0) && (A[1][1] == 0))
-		{
-			double x1 = A[0][2] / A[0][0];
-			double x2 = A[1][2] / A[1][0];
-			if (x1 == x2)
-			{
-				cout << s << sx << x1 << sy << "any value" << endl;
-				return 0;
-			}
-			else
-			{
-				cout << "no Solutions" << endl;
-				return 0;
-			}
-		}
-		else if ((A[0][0] == A[1][0]) && (A[0][1] == A[1][1]))
-		{
-			if (A[0][2] == A[1][2])
-			{
-				cout << s <<sx<<"any value"<< sy << A[0][2] / A[0][1] << "+" << A[0][0] / A[0][1] << "*x" << endl;
-				return 0;
-			}
-			else
-			{
-				cout << "no Solutions" << endl;
-				return 0;
-			}
-		}
-		else if (A[0][0] == A[1][0])
-		{
-			cout << s << sx << "any value" << sy << (A[0][2]+A[1][2]) / (A[0][1]+A[1][1]) << endl;
-			return 0;
-
-		}
-		else if (A[0][1] == A[1][1])
-		{
-			cout << s << sx << (A[0][2] + A[1][2]) / (A[0][0] + A[1][0])  << sy << "any value" << endl;
-			return 0;
+			cout << s << sx << Dx / D << "\n" << sy << Dy / D << endl;
+			
 		}
 		else
 		{
-			cout << "smth went wrong" << endl;
-			return -1;
+			if ((A[0][0] == 0) && (A[0][1] == 0) && (A[1][0] == 0) && (A[1][1] == 0))
+			{
+				if ((A[0][2] == 0) && (A[1][2] == 0))
+				{
+					cout << s << sx << "any value" << sy << "any value" << endl;
+					
+				}
+				else
+				{
+					cout << "invalid matrix" << endl;
+					
+				}
+			}
+			else if ((A[0][0] == 0) && (A[1][0] == 0))
+			{
+				double y1 = A[0][2] / A[0][1];
+				double y2 = A[1][2] / A[1][1];
+				if (y1 == y2)
+				{
+					cout << s << sx << "any value" << sy << y1 << endl;
+					
+				}
+				else
+				{
+					cout << "no Solutions" << endl;
+					
+				}
+			}
+			else if ((A[0][1] == 0) && (A[1][1] == 0))
+			{
+				double x1 = A[0][2] / A[0][0];
+				double x2 = A[1][2] / A[1][0];
+				if (x1 == x2)
+				{
+					cout << s << sx << x1 << sy << "any value" << endl;
+					
+				}
+				else
+				{
+					cout << "no Solutions" << endl;
+					
+				}
+			}
+			else if ((A[0][0] == A[1][0]) && (A[0][1] == A[1][1]))
+			{
+				if (A[0][2] == A[1][2])
+				{
+					cout << s << sx << "any value" << sy << A[0][2] / A[0][1] << "+" << A[0][0] / A[0][1] << "*x" << endl;
+					
+				}
+				else
+				{
+					cout << "no Solutions" << endl;
+					
+				}
+			}
+			else if (A[0][0] == A[1][0])
+			{
+				cout << s << sx << "any value" << sy << (A[0][2] + A[1][2]) / (A[0][1] + A[1][1]) << endl;
+				
+
+			}
+			else if (A[0][1] == A[1][1])
+			{
+				cout << s << sx << (A[0][2] + A[1][2]) / (A[0][0] + A[1][0]) << sy << "any value" << endl;
+				
+			}
+			else
+			{
+				cout << "smth went wrong" << endl;
+				
+			}
 		}
+		cin >> sw;
 	}
-	
 	return 0;
 }
